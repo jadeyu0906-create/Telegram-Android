@@ -65,9 +65,24 @@ public class Web3LoginActivity extends Activity {
 
     /**
      * Telegram 账号登录
-     * 跳转到官方 LaunchActivity 进行正常登录流程
+     * 通过设置过期的登录状态，让 LaunchActivity 跳过 IntroActivity，
+     * 同时让 LoginActivity 自动重置为第一步（输入手机号）
      */
     private void loginWithTelegram() {
+        // 设置一个"过期的"登录状态（超过 24 小时）
+        // 这样：
+        // 1. LaunchActivity 会检测到 currentViewNum != 0，显示 LoginActivity 而不是 IntroActivity
+        // 2. LoginActivity 会检测到状态过期（时间戳距今超过 24 小时），自动重置为 VIEW_PHONE_INPUT (0)
+        long expiredTimestamp = (System.currentTimeMillis() / 1000) - (25 * 60 * 60); // 25 小时前
+
+        getSharedPreferences("logininfo2", MODE_PRIVATE)
+            .edit()
+            .clear()
+            .putInt("currentViewNum", 1)  // 设为非 0，跳过 IntroActivity
+            .putInt("open", (int) expiredTimestamp)  // 设置过期时间戳
+            .apply();
+
+        // 跳转到 LaunchActivity
         Intent intent = new Intent(this, LaunchActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
