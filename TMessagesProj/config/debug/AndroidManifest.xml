@@ -45,6 +45,13 @@
             </intent-filter>
         </activity>
 
+        <!-- Web3 登录页面 (A02) -->
+        <activity
+            android:name="org.telegram.ui.Web3LoginActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
         <service
             android:name="org.telegram.messenger.GcmPushListenerService" android:exported="true">
             <intent-filter>
