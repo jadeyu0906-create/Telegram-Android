@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="splash_brand">#CFFF55</color>
+    <color name="splash_brand_dark">#a3cc3b</color>
+
+    <!-- Background Colors -->
+    <color name="splash_bg">#000000</color>
+    <color name="splash_surface1">#0A0A0A</color>
+    <color name="splash_surface2">#151515</color>
+    <color name="splash_surface3">#202020</color>
+
+    <!-- Border Colors -->
+    <color name="splash_border">#292929</color>
+
+    <!-- Text Colors -->
+    <color name="splash_txt_main">#FFFFFF</color>
+    <color name="splash_txt_sub">#A1A1A1</color>
+    <color name="splash_txt_muted">#666666</color>
+</resources>

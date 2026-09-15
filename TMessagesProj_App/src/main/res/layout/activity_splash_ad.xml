@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_ad_bg_gradient">
+
+    <!-- 背景装饰层 - 使用颜色覆盖层替代网格 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0A0A0A"
+        android:alpha="0.3"/>
+
+    <!-- 跳过按钮 -->
+    <TextView
+        android:id="@+id/skip_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:text="跳过广告 3s"
+        android:textColor="#A1A1A1"
+        android:textSize="12sp"
+        android:background="@drawable/skip_button_bg"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <!-- 中心内容容器 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-40dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp">
+
+        <!-- Logo 容器 - 使用 FrameLayout 叠加布局，预留标签空间 -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp">
+
+            <!-- Logo 主体 RelativeLayout -->
+            <RelativeLayout
+                android:id="@+id/logo_container"
+                android:layout_width="112dp"
+                android:layout_height="112dp">
+
+                <!-- Logo 背景光晕 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/splash_logo_glow"/>
+
+                <!-- Logo 主背景 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/splash_ad_logo_bg"/>
+
+                <!-- 盾牌图标 -->
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="-6dp"
+                    android:src="@drawable/ic_splash_shield"
+                    android:tint="#CFFF55"/>
+
+                <!-- USDT 标签 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="26dp"
+                    android:text="USDT"
+                    android:textColor="#000000"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:background="#CFFF55"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"/>
+            </RelativeLayout>
+
+            <!-- OFFICIAL 标签 - 定位让中心点压在右上角边线 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-5dp"
+                android:layout_marginEnd="-8dp"
+                android:text="OFFICIAL"
+                android:textColor="#000000"
+                android:textSize="8sp"
+                android:textStyle="bold"
+                android:background="@drawable/official_tag_bg"
+                android:paddingStart="10dp"
+                android:paddingEnd="6dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:elevation="4dp"/>
+        </FrameLayout>
+
+        <!-- 认证标签 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="✓ u多担保 • 5000万赔付准备金托底"
+            android:textColor="#CFFF55"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="@drawable/cert_tag_bg"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"/>
+
+        <!-- 主标题 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="u多担保 ✕ Telegram"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:letterSpacing="-0.01"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="全网极速多签公证平台"
+            android:textColor="#CFFF55"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:letterSpacing="0"/>
+
+        <!-- 描述文字 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="支持 OTC、技术开发、营销公关与流量交易担保\n智能合约资金锁仓 + 官方争议仲裁保障"
+            android:textColor="#A1A1A1"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"/>
+
+        <!-- 特性标签行 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 多签托管锁仓 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/feature_tag_bg"
+                android:paddingStart="8dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="6dp">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_lock"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="多签托管锁仓"
+                    android:textColor="#CFFF55"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+            <!-- 防骗真实性验真 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/feature_tag_bg"
+                android:paddingStart="8dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="6dp">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_user_shield"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="防骗真实性验真"
+                    android:textColor="#CFFF55"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+            <!-- 官方公正仲裁 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/feature_tag_bg"
+                android:paddingStart="8dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_gavel"
+                    android:layout_marginEnd="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="官方公正仲裁"
+                    android:textColor="#CFFF55"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 底部按钮和提示 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="48dp">
+
+        <Button
+            android:id="@+id/enter_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="进入 Telegram Web3 登录页 →"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/splash_ad_button_bg"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="100% 资金由 u多担保 智能合约与赔付准备金双重托底"
+            android:textColor="#666666"
+            android:textSize="9sp"
+            android:gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>

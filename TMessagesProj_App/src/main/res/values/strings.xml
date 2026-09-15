@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Splash Ad Strings -->
+    <string name="splash_skip_ad">跳过广告</string>
+    <string name="splash_official_tag">OFFICIAL</string>
+    <string name="splash_usdt_tag">USDT</string>
+    <string name="splash_cert_text">✓ u多担保 • 5000万赔付准备金托底</string>
+    <string name="splash_title_1">u多担保 × Telegram</string>
+    <string name="splash_title_2">全网极速多签公证平台</string>
+    <string name="splash_desc">支持 OTC、技术开发、营销公关与流量交易担保\n智能合约资金锁仓 + 官方争议仲裁保障</string>
+    <string name="splash_feature_1">🔒 多签托管锁仓</string>
+    <string name="splash_feature_2">🛡️ 防骗真实性验真</string>
+    <string name="splash_feature_3">⚖️ 官方公正仲裁</string>
+    <string name="splash_button">进入 Telegram Web3 登录页 →</string>
+    <string name="splash_footer">100%% 资金由 u多担保 智能合约与赔付准备金双重托底</string>
+</resources>
