@@ -5,19 +5,6 @@
 
     <application android:name="org.telegram.messenger.ApplicationLoaderImpl" tools:replace="name">
 
-        <!-- 开屏广告 Activity - 设为应用启动入口 -->
-        <activity
-            android:name="org.telegram.ui.SplashAdActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait"
-            android:exported="true"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
         <service
             android:name="org.telegram.messenger.GoogleVoiceClientService"
             android:exported="true"

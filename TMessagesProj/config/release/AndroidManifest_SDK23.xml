@@ -69,6 +69,17 @@
             android:enabled="false"
             android:exported="false" />
 
+        <activity
+            android:name="org.telegram.ui.SplashAdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.TMessages.Start">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
