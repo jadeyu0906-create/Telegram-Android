@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- スプラッシュ広告画面 -->
+    <string name="splash_skip_ad">広告をスキップ</string>
+    <string name="splash_official_tag">OFFICIAL</string>
+    <string name="splash_usdt_tag">USDT</string>
+    <string name="splash_cert_text">✓ UDuo保証 • 5000万ドル準備金サポート</string>
+    <string name="splash_title_brand">UDuo保証 ✕ Telegram</string>
+    <string name="splash_title_slogan">超高速マルチシグ公証プラットフォーム</string>
+    <string name="splash_desc">OTC、技術開発、マーケティング、トラフィック取引エスクローをサポート\nスマートコントラクト資金ロック + 公式紛争調停保証</string>
+    <string name="splash_feature_escrow">マルチシグエスクロー</string>
+    <string name="splash_feature_verify">詐欺防止認証</string>
+    <string name="splash_feature_arbitration">公式調停</string>
+    <string name="splash_button">Telegram Web3ログインページへ →</string>
+    <string name="splash_footer">100%%の資金はUDuoスマートコントラクトと準備金で保護されています</string>
+
+    <!-- Web3ログイン画面 -->
+    <string name="web3_title">Web3 × Telegram</string>
+    <string name="web3_subtitle">分散型Web3エコシステムと軽量ソーシャルの融合\n既存のアカウント、連絡先、グループを引き続き使用</string>
+    <string name="web3_login_btn">Telegramクイックログイン</string>
+    <string name="web3_quick_access_btn">ワンクリックゲストアクセス</string>
+    <string name="web3_footer">100%%の資金はUDuoスマートコントラクトと準備金で保護されています</string>
+</resources>

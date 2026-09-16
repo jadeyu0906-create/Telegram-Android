@@ -21,7 +21,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
-        android:text="跳过广告 3s"
+        android:text="@string/splash_skip_ad"
         android:textColor="#A1A1A1"
         android:textSize="12sp"
         android:background="@drawable/skip_button_bg"
@@ -86,7 +86,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="26dp"
-                    android:text="USDT"
+                    android:text="@string/splash_usdt_tag"
                     android:textColor="#000000"
                     android:textSize="11sp"
                     android:textStyle="bold"
@@ -104,7 +104,7 @@
                 android:layout_gravity="top|end"
                 android:layout_marginTop="-5dp"
                 android:layout_marginEnd="-8dp"
-                android:text="OFFICIAL"
+                android:text="@string/splash_official_tag"
                 android:textColor="#000000"
                 android:textSize="8sp"
                 android:textStyle="bold"
@@ -121,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="✓ u多担保 • 5000万赔付准备金托底"
+            android:text="@string/splash_cert_text"
             android:textColor="#CFFF55"
             android:textSize="11sp"
             android:textStyle="bold"
@@ -136,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="u多担保 ✕ Telegram"
+            android:text="@string/splash_title_brand"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -147,7 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="全网极速多签公证平台"
+            android:text="@string/splash_title_slogan"
             android:textColor="#CFFF55"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -159,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="支持 OTC、技术开发、营销公关与流量交易担保\n智能合约资金锁仓 + 官方争议仲裁保障"
+            android:text="@string/splash_desc"
             android:textColor="#A1A1A1"
             android:textSize="12sp"
             android:gravity="center"
@@ -195,7 +195,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="多签托管锁仓"
+                    android:text="@string/splash_feature_escrow"
                     android:textColor="#CFFF55"
                     android:textSize="10sp"/>
             </LinearLayout>
@@ -222,7 +222,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="防骗真实性验真"
+                    android:text="@string/splash_feature_verify"
                     android:textColor="#CFFF55"
                     android:textSize="10sp"/>
             </LinearLayout>
@@ -248,7 +248,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="官方公正仲裁"
+                    android:text="@string/splash_feature_arbitration"
                     android:textColor="#CFFF55"
                     android:textSize="10sp"/>
             </LinearLayout>
@@ -270,7 +270,7 @@
             android:id="@+id/enter_button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="进入 Telegram Web3 登录页 →"
+            android:text="@string/splash_button"
             android:textColor="#000000"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -282,7 +282,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="100% 资金由 u多担保 智能合约与赔付准备金双重托底"
+            android:text="@string/splash_footer"
             android:textColor="#666666"
             android:textSize="9sp"
             android:gravity="center"/>

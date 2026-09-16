@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 閃屏廣告頁 -->
+    <string name="splash_skip_ad">跳過廣告</string>
+    <string name="splash_official_tag">OFFICIAL</string>
+    <string name="splash_usdt_tag">USDT</string>
+    <string name="splash_cert_text">✓ u多擔保 • 5000萬賠付準備金託底</string>
+    <string name="splash_title_brand">u多擔保 ✕ Telegram</string>
+    <string name="splash_title_slogan">全網極速多簽公證平台</string>
+    <string name="splash_desc">支援 OTC、技術開發、行銷公關與流量交易擔保\n智能合約資金鎖倉 + 官方爭議仲裁保障</string>
+    <string name="splash_feature_escrow">多簽託管鎖倉</string>
+    <string name="splash_feature_verify">防詐真實性驗真</string>
+    <string name="splash_feature_arbitration">官方公正仲裁</string>
+    <string name="splash_button">進入 Telegram Web3 登入頁 →</string>
+    <string name="splash_footer">100%% 資金由 u多擔保 智能合約與賠付準備金雙重託底</string>
+
+    <!-- Web3 登入頁 -->
+    <string name="web3_title">Web3 × Telegram</string>
+    <string name="web3_subtitle">去中心化 Web3 生態與輕量社交的融合體\n繼續使用原有帳號、聯絡人與群組</string>
+    <string name="web3_login_btn">Telegram 帳號快捷登入</string>
+    <string name="web3_quick_access_btn">一鍵免密接入體驗</string>
+    <string name="web3_footer">100%% 資金由 u多擔保 智能合約與賠付準備金雙重託底</string>
+</resources>

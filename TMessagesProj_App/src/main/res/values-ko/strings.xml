@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 스플래시 광고 화면 -->
+    <string name="splash_skip_ad">광고 건너뛰기</string>
+    <string name="splash_official_tag">OFFICIAL</string>
+    <string name="splash_usdt_tag">USDT</string>
+    <string name="splash_cert_text">✓ UDuo 보증 • 5000만 달러 준비금 지원</string>
+    <string name="splash_title_brand">UDuo 보증 ✕ Telegram</string>
+    <string name="splash_title_slogan">초고속 다중 서명 공증 플랫폼</string>
+    <string name="splash_desc">OTC, 기술 개발, 마케팅 및 트래픽 거래 에스크로 지원\n스마트 계약 자금 잠금 + 공식 분쟁 중재 보장</string>
+    <string name="splash_feature_escrow">다중 서명 에스크로</string>
+    <string name="splash_feature_verify">사기 방지 인증</string>
+    <string name="splash_feature_arbitration">공식 중재</string>
+    <string name="splash_button">Telegram Web3 로그인 페이지로 이동 →</string>
+    <string name="splash_footer">100%% 자금은 UDuo 스마트 계약 및 준비금으로 보호됩니다</string>
+
+    <!-- Web3 로그인 화면 -->
+    <string name="web3_title">Web3 × Telegram</string>
+    <string name="web3_subtitle">탈중앙화 Web3 생태계와 가벼운 소셜의 융합\n기존 계정, 연락처 및 그룹을 계속 사용하세요</string>
+    <string name="web3_login_btn">Telegram 빠른 로그인</string>
+    <string name="web3_quick_access_btn">원클릭 게스트 접속</string>
+    <string name="web3_footer">100%% 자금은 UDuo 스마트 계약 및 준비금으로 보호됩니다</string>
+</resources>
