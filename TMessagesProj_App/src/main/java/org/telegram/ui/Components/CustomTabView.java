@@ -1,11 +1,8 @@
 package org.telegram.ui.Components;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.view.Gravity;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,6 +62,9 @@ public class CustomTabView extends FrameLayout {
             Gravity.CENTER
         );
         addView(content, contentParams);
+
+        // 启用无障碍支持
+        setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
     }
 
     public void setTabIcon(String emoji) {
@@ -73,6 +73,7 @@ public class CustomTabView extends FrameLayout {
 
     public void setTabText(String text) {
         textView.setText(text);
+        setContentDescription(text);
     }
 
     public void setSelected(boolean selected) {
@@ -80,6 +81,7 @@ public class CustomTabView extends FrameLayout {
         int color = selected ? COLOR_SELECTED : COLOR_UNSELECTED;
         iconView.setTextColor(color);
         textView.setTextColor(color);
+        invalidate();
     }
 
     public boolean isTabSelected() {
