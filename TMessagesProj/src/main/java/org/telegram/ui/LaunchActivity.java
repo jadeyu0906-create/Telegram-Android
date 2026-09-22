@@ -582,7 +582,11 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
             if (!UserConfig.getInstance(currentAccount).isClientActivated()) {
                 actionBarLayout.addFragmentToStack(getClientNotActivatedFragment());
             } else {
-                MainTabsActivity mainTabsActivity = new MainTabsActivity();
+                // @custom 自定义二开代码 - 使用自定义Tab容器
+                // 修改原因：实现自定义底部导航（4个Tab：聊天/联系人/发现/我的）
+                // 修改日期：2025-01-17
+                // 冲突解决：搜索 "new MainTabsActivity()" 并全部替换为 "new CustomMainTabsActivity()"
+                MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
                 actionBarLayout.addFragmentToStack(mainTabsActivity);
             }
 
@@ -1185,7 +1189,11 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
 
     private boolean switchingAccount;
     public void switchToAccount(int account, boolean removeAll) {
-        switchToAccount(account, removeAll, obj -> new MainTabsActivity());
+        // @custom 自定义二开代码 - 使用自定义Tab容器
+        // 修改原因：实现自定义底部导航（4个Tab：聊天/联系人/发现/我的）
+        // 修改日期：2025-01-17
+        // 冲突解决：搜索 "new MainTabsActivity()" 并全部替换为 "new CustomMainTabsActivity()"
+        switchToAccount(account, removeAll, obj -> new CustomMainTabsActivity());
     }
 
     public void switchToAccount(int account, boolean removeAll, GenericProvider<Void, MainTabsActivity> dialogsActivityProvider) {
@@ -3297,7 +3305,11 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
                     }
                 } else {
                     if (actionBarLayout.getFragmentStack().isEmpty()) {
-                        MainTabsActivity mainTabsActivity = new MainTabsActivity();
+                        // @custom 自定义二开代码 - 使用自定义Tab容器
+                        // 修改原因：实现自定义底部导航（4个Tab：聊天/联系人/发现/我的）
+                        // 修改日期：2025-01-17
+                        // 冲突解决：搜索 "new MainTabsActivity()" 并全部替换为 "new CustomMainTabsActivity()"
+                        MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
                         DialogsActivity dialogsActivity = mainTabsActivity.prepareDialogsActivity(null);
                         if (searchQuery != null) {
                             dialogsActivity.setInitialSearchString(searchQuery);
@@ -3310,7 +3322,11 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
                     if (!UserConfig.getInstance(currentAccount).isClientActivated()) {
                         actionBarLayout.addFragmentToStack(getClientNotActivatedFragment(), INavigationLayout.FORCE_NOT_ATTACH_VIEW);
                     } else {
-                        MainTabsActivity mainTabsActivity = new MainTabsActivity();
+                        // @custom 自定义二开代码 - 使用自定义Tab容器
+                        // 修改原因：实现自定义底部导航（4个Tab：聊天/联系人/发现/我的）
+                        // 修改日期：2025-01-17
+                        // 冲突解决：搜索 "new MainTabsActivity()" 并全部替换为 "new CustomMainTabsActivity()"
+                        MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
                         DialogsActivity dialogsActivity = mainTabsActivity.prepareDialogsActivity(null);
                         if (searchQuery != null) {
                             dialogsActivity.setInitialSearchString(searchQuery);
