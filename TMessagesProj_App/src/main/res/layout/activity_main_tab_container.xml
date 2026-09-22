@@ -1,0 +1,142 @@
+<!-- @custom 自定义二开代码 - 主容器Activity布局 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_bg">
+
+    <!-- Fragment 容器 -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"/>
+
+    <!-- 底部导航栏 -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bottom_nav_background"
+        android:orientation="horizontal"
+        android:elevation="8dp">
+
+        <!-- 聊天 Tab -->
+        <LinearLayout
+            android:id="@+id/tab_chats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/icon_chats"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_tab_chats"
+                android:contentDescription="@string/tab_chats"/>
+
+            <TextView
+                android:id="@+id/text_chats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_chats"
+                android:textSize="11sp"
+                android:textColor="@drawable/bottom_nav_item_text_color"/>
+        </LinearLayout>
+
+        <!-- 联系人 Tab -->
+        <LinearLayout
+            android:id="@+id/tab_contacts"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/icon_contacts"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_tab_contacts"
+                android:contentDescription="@string/tab_contacts"/>
+
+            <TextView
+                android:id="@+id/text_contacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_contacts"
+                android:textSize="11sp"
+                android:textColor="@drawable/bottom_nav_item_text_color"/>
+        </LinearLayout>
+
+        <!-- 发现 Tab -->
+        <LinearLayout
+            android:id="@+id/tab_discover"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/icon_discover"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_tab_discover"
+                android:contentDescription="@string/tab_discover"/>
+
+            <TextView
+                android:id="@+id/text_discover"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_discover"
+                android:textSize="11sp"
+                android:textColor="@drawable/bottom_nav_item_text_color"/>
+        </LinearLayout>
+
+        <!-- 我的 Tab -->
+        <LinearLayout
+            android:id="@+id/tab_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/icon_mine"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_tab_mine"
+                android:contentDescription="@string/tab_mine"/>
+
+            <TextView
+                android:id="@+id/text_mine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tab_mine"
+                android:textSize="11sp"
+                android:textColor="@drawable/bottom_nav_item_text_color"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

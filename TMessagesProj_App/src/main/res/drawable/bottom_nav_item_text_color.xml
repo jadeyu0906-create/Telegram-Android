@@ -1,0 +1,5 @@
+<!-- @custom 自定义二开代码 - Tab选择器状态 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/bottom_nav_item_active" android:state_selected="true"/>
+    <item android:color="@color/bottom_nav_item_inactive"/>
+</selector>

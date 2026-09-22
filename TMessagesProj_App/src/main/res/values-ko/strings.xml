@@ -30,4 +30,14 @@
     <string name="quick_access_progress_title">계정 자격 증명 생성 중...</string>
     <string name="quick_access_progress_message">탈중앙화 익명 자격 증명 및 Telegram 임시 키 생성</string>
     <string name="quick_access_success_toast">접속 성공, Telegram에 로그인되었습니다!</string>
+
+    <!-- @custom 自定義二開代碼 - 하단 탐색 탭 -->
+    <string name="tab_chats">채팅</string>
+    <string name="tab_contacts">연락처</string>
+    <string name="tab_discover">발견</string>
+    <string name="tab_mine">내 정보</string>
+
+    <!-- 발견 페이지 플레이스홀더 -->
+    <string name="discover_placeholder_title">발견</string>
+    <string name="discover_placeholder_message">개발 중</string>
 </resources>

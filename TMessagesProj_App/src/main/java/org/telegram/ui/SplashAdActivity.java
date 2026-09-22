@@ -117,7 +117,7 @@ public class SplashAdActivity extends Activity {
     }
 
     /**
-     * 跳转到 Web3 登录页面
+     * 跳转到主Tab容器页面
      */
     private void goToMainApp() {
         // 取消倒计时
@@ -126,8 +126,8 @@ public class SplashAdActivity extends Activity {
         }
 
         try {
-            // 跳转到 Web3 登录页（A02）
-            Intent intent = new Intent(this, Web3LoginActivity.class);
+            // @custom 自定义二开代码 - 跳转到主Tab容器Activity
+            Intent intent = new Intent(this, MainTabContainerActivity.class);
 
             // 传递原始的 intent 数据（如果有的话）
             if (getIntent() != null && getIntent().getExtras() != null) {

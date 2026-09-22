@@ -30,4 +30,14 @@
     <string name="quick_access_progress_title">正在建立帳號憑證...</string>
     <string name="quick_access_progress_message">生成去中心化匿名憑證與 Telegram 臨時密鑰</string>
     <string name="quick_access_success_toast">免密接入成功，已登入 Telegram 帳號！</string>
+
+    <!-- @custom 自定義二開代碼 - 底部導航欄 -->
+    <string name="tab_chats">聊天</string>
+    <string name="tab_contacts">聯絡人</string>
+    <string name="tab_discover">發現</string>
+    <string name="tab_mine">我的</string>
+
+    <!-- 發現頁佔位 -->
+    <string name="discover_placeholder_title">發現</string>
+    <string name="discover_placeholder_message">功能開發中</string>
 </resources>

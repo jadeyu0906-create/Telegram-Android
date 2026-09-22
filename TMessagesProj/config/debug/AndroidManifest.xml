@@ -52,6 +52,15 @@
             android:screenOrientation="portrait"
             android:exported="false" />
 
+        <!-- @custom 自定义二开代码 - 主Tab容器Activity -->
+        <activity
+            android:name="org.telegram.ui.MainTabContainerActivity"
+            android:theme="@style/Theme.TMessages.Start"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:hardwareAccelerated="true"
+            android:exported="false" />
+
         <service
             android:name="org.telegram.messenger.GcmPushListenerService" android:exported="true">
             <intent-filter>

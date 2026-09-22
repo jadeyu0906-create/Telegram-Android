@@ -30,4 +30,14 @@
     <string name="quick_access_progress_title">Creating account credentials...</string>
     <string name="quick_access_progress_message">Generating decentralized anonymous credentials and Telegram temporary keys</string>
     <string name="quick_access_success_toast">Access successful, logged into Telegram!</string>
+
+    <!-- @custom 自定义二开代码 - Bottom Navigation Tabs -->
+    <string name="tab_chats">Chats</string>
+    <string name="tab_contacts">Contacts</string>
+    <string name="tab_discover">Discover</string>
+    <string name="tab_mine">Mine</string>
+
+    <!-- Discover Placeholder -->
+    <string name="discover_placeholder_title">Discover</string>
+    <string name="discover_placeholder_message">Under development</string>
 </resources>
