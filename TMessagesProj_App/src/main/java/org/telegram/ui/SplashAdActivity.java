@@ -82,7 +82,8 @@ public class SplashAdActivity extends Activity {
             @Override
             public void onTick(long millisUntilFinished) {
                 long seconds = millisUntilFinished / 1000;
-                skipButton.setText(getString(R.string.splash_skip_ad) + " " + seconds + "s");
+                int skipAdResId = getResources().getIdentifier("splash_skip_ad", "string", getPackageName());
+                skipButton.setText(getString(skipAdResId) + " " + seconds + "s");
             }
 
             @Override

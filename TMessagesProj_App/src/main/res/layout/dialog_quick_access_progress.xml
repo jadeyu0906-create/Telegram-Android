@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 一键免密接入进度弹窗（复刻 HTML modal-login-progress） -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6000000">
+
+    <!-- 弹窗卡片 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/dialog_progress_background"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <!-- 旋转圆环 + 用户盾牌 -->
+        <FrameLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp">
+
+            <!-- 旋转圆环 -->
+            <ImageView
+                android:id="@+id/icon_loading_ring"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_loading_ring" />
+
+            <!-- 用户盾牌 -->
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_user_shield"
+                android:tint="#CFFF55" />
+        </FrameLayout>
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/quick_access_progress_title"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- 描述 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/quick_access_progress_message"
+            android:textColor="#A1A1A1"
+            android:textSize="12sp"
+            android:gravity="center" />
+
+        <!-- 进度条 -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="20dp"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar_bg" />
+    </LinearLayout>
+</FrameLayout>

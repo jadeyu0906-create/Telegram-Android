@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 旋转加载圆环 - 顶部亮色 + 其余暗色（复刻 HTML border-t-brand animate-spin） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 暗色完整圆环 (brand 20%) -->
+    <path
+        android:pathData="M12,2a10,10 0 1,1 -0.01,0"
+        android:strokeColor="#33CFFF55"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"/>
+    <!-- 顶部亮色圆弧 (brand) -->
+    <path
+        android:pathData="M12,2a10,10 0 0,1 10,10"
+        android:strokeColor="#CFFF55"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"/>
+</vector>

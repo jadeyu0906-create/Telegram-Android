@@ -20,4 +20,14 @@
     <string name="web3_login_btn">Telegram 빠른 로그인</string>
     <string name="web3_quick_access_btn">원클릭 게스트 접속</string>
     <string name="web3_footer">100%% 자금은 UDuo 스마트 계약 및 준비금으로 보호됩니다</string>
+
+    <!-- 원클릭 게스트 접속 대화상자 -->
+    <string name="quick_access_dialog_title">빠른 비밀번호 없는 접속</string>
+    <string name="quick_access_dialog_message">시스템이 안전한 경량 신원 자격 증명을 신속하게 할당하여 바로 체험을 시작할 수 있습니다.</string>
+    <string name="quick_access_dialog_confirm">지금 접속</string>
+    <string name="quick_access_dialog_cancel">취소</string>
+
+    <string name="quick_access_progress_title">계정 자격 증명 생성 중...</string>
+    <string name="quick_access_progress_message">탈중앙화 익명 자격 증명 및 Telegram 임시 키 생성</string>
+    <string name="quick_access_success_toast">접속 성공, Telegram에 로그인되었습니다!</string>
 </resources>

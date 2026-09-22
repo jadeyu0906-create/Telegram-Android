@@ -1,17 +1,26 @@
 package org.telegram.ui;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 /**
  * Web3 登录页面 (A02)
  *
  * 功能：
  * 1. Telegram 账号快捷登录
- * 2. 一键免密接入体验
+ * 2. 一键免密接入体验（两步弹窗：确认接入 + 进度显示）
  *
  * 设计参考：web3_telegram_super_app_prototype.html (screen-login)
  *
@@ -70,9 +79,6 @@ public class Web3LoginActivity extends Activity {
      */
     private void loginWithTelegram() {
         // 设置一个"过期的"登录状态（超过 24 小时）
-        // 这样：
-        // 1. LaunchActivity 会检测到 currentViewNum != 0，显示 LoginActivity 而不是 IntroActivity
-        // 2. LoginActivity 会检测到状态过期（时间戳距今超过 24 小时），自动重置为 VIEW_PHONE_INPUT (0)
         long expiredTimestamp = (System.currentTimeMillis() / 1000) - (25 * 60 * 60); // 25 小时前
 
         getSharedPreferences("logininfo2", MODE_PRIVATE)
@@ -91,15 +97,80 @@ public class Web3LoginActivity extends Activity {
 
     /**
      * 一键免密接入体验模式
-     * TODO: 后续实现 Web3 钱包连接逻辑
+     * 两步弹窗：确认接入 → 进度显示
      */
     private void quickAccessMode() {
-        // 暂时也跳转到 LaunchActivity
-        // 后续可以实现游客模式或 Web3 钱包连接
-        Intent intent = new Intent(this, LaunchActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        showQuickAccessConfirmDialog();
+    }
+
+    /**
+     * 显示确认接入对话框（复刻 HTML modal-one-click）
+     */
+    private void showQuickAccessConfirmDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(getResId("dialog_quick_access_confirm", "layout"));
+        dialog.setCancelable(true);
+
+        Button btnCancel = dialog.findViewById(getResId("btn_cancel", "id"));
+        Button btnConfirm = dialog.findViewById(getResId("btn_confirm", "id"));
+
+        btnCancel.setOnClickListener(v -> dialog.dismiss());
+        btnConfirm.setOnClickListener(v -> {
+            dialog.dismiss();
+            showQuickAccessProgressDialog();
+        });
+
+        dialog.show();
+    }
+
+    /**
+     * 显示进度对话框（复刻 HTML modal-login-progress）
+     * 旋转圆环 + 进度条 0→100，完成后跳转
+     */
+    private void showQuickAccessProgressDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(getResId("dialog_quick_access_progress", "layout"));
+        dialog.setCancelable(false);
+
+        ImageView iconLoadingRing = dialog.findViewById(getResId("icon_loading_ring", "id"));
+        ProgressBar progressBar = dialog.findViewById(getResId("progress_bar", "id"));
+
+        dialog.show();
+
+        // 旋转圆环动画
+        Animation rotate = AnimationUtils.loadAnimation(this, getResId("rotate_infinite", "anim"));
+        iconLoadingRing.startAnimation(rotate);
+
+        // 进度条动画 0→100 (800ms)
+        ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, 100);
+        animator.setDuration(800);
+        animator.setInterpolator(new DecelerateInterpolator());
+        animator.start();
+
+        // 1100ms 后关闭弹窗，显示 Toast，跳转
+        new Handler().postDelayed(() -> {
+            dialog.dismiss();
+            Toast.makeText(this, getStringByName("quick_access_success_toast"), Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, LaunchActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }, 1100);
+    }
+
+    /**
+     * 动态获取资源 ID（兼容多变体 namespace）
+     */
+    private int getResId(String name, String type) {
+        return getResources().getIdentifier(name, type, getPackageName());
+    }
+
+    /**
+     * 动态获取字符串资源
+     */
+    private String getStringByName(String name) {
+        return getString(getResId(name, "string"));
     }
 
     @Override

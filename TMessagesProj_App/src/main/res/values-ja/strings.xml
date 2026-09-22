@@ -20,4 +20,14 @@
     <string name="web3_login_btn">Telegramクイックログイン</string>
     <string name="web3_quick_access_btn">ワンクリックゲストアクセス</string>
     <string name="web3_footer">100%%の資金はUDuoスマートコントラクトと準備金で保護されています</string>
+
+    <!-- ワンクリックゲストアクセスダイアログ -->
+    <string name="quick_access_dialog_title">クイックパスワードレスアクセス</string>
+    <string name="quick_access_dialog_message">システムが安全な軽量ID資格情報を迅速に割り当て、すぐに体験を開始できます。</string>
+    <string name="quick_access_dialog_confirm">今すぐアクセス</string>
+    <string name="quick_access_dialog_cancel">キャンセル</string>
+
+    <string name="quick_access_progress_title">アカウント資格情報を作成中...</string>
+    <string name="quick_access_progress_message">分散型匿名資格情報とTelegram一時キーを生成</string>
+    <string name="quick_access_success_toast">アクセス成功、Telegramにログインしました！</string>
 </resources>

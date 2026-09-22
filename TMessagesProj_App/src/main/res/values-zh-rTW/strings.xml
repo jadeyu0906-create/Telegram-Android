@@ -20,4 +20,14 @@
     <string name="web3_login_btn">Telegram 帳號快捷登入</string>
     <string name="web3_quick_access_btn">一鍵免密接入體驗</string>
     <string name="web3_footer">100%% 資金由 u多擔保 智能合約與賠付準備金雙重託底</string>
+
+    <!-- 一鍵免密接入彈窗 -->
+    <string name="quick_access_dialog_title">快速免密帳號接入</string>
+    <string name="quick_access_dialog_message">系統將為您快速分配安全的輕量身份憑證，方便即刻開啟體驗。</string>
+    <string name="quick_access_dialog_confirm">立即接入</string>
+    <string name="quick_access_dialog_cancel">取消</string>
+
+    <string name="quick_access_progress_title">正在建立帳號憑證...</string>
+    <string name="quick_access_progress_message">生成去中心化匿名憑證與 Telegram 臨時密鑰</string>
+    <string name="quick_access_success_toast">免密接入成功，已登入 Telegram 帳號！</string>
 </resources>

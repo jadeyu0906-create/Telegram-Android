@@ -20,4 +20,14 @@
     <string name="web3_login_btn">Telegram Quick Login</string>
     <string name="web3_quick_access_btn">One-Click Guest Access</string>
     <string name="web3_footer">100%% funds secured by UDuo smart contracts &amp; reserve fund</string>
+
+    <!-- Quick Access Dialog -->
+    <string name="quick_access_dialog_title">Quick Passwordless Access</string>
+    <string name="quick_access_dialog_message">The system will quickly assign you a secure lightweight identity credential so you can start exploring right away.</string>
+    <string name="quick_access_dialog_confirm">Access Now</string>
+    <string name="quick_access_dialog_cancel">Cancel</string>
+
+    <string name="quick_access_progress_title">Creating account credentials...</string>
+    <string name="quick_access_progress_message">Generating decentralized anonymous credentials and Telegram temporary keys</string>
+    <string name="quick_access_success_toast">Access successful, logged into Telegram!</string>
 </resources>

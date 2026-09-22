@@ -20,4 +20,14 @@
     <string name="web3_login_btn">Telegram 账号快捷登录</string>
     <string name="web3_quick_access_btn">一键免密接入体验</string>
     <string name="web3_footer">100%% 资金由 u多担保 智能合约与赔付准备金双重托底</string>
+
+    <!-- 一键免密接入弹窗 -->
+    <string name="quick_access_dialog_title">快速免密账号接入</string>
+    <string name="quick_access_dialog_message">系统将为您快速分配安全的轻量身份凭证，方便即刻开启体验。</string>
+    <string name="quick_access_dialog_confirm">立即接入</string>
+    <string name="quick_access_dialog_cancel">取消</string>
+
+    <string name="quick_access_progress_title">正在创建账号凭证...</string>
+    <string name="quick_access_progress_message">生成去中心化匿名凭证与 Telegram 临时密钥</string>
+    <string name="quick_access_success_toast">免密接入成功，已登录 Telegram 账号！</string>
 </resources>
