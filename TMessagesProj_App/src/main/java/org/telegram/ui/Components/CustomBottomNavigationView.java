@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import org.telegram.messenger.AndroidUtilities;
+import org.telegram.messenger.FileLog;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.R;
 
@@ -20,6 +21,7 @@ public class CustomBottomNavigationView extends LinearLayout {
     // 黑金配色
     private static final int COLOR_BG = 0xFF000000;           // 纯黑背景
     private static final int COLOR_DIVIDER = 0xFF292929;      // 分割线
+    private static final int TAB_COUNT = 4;                   // Tab数量
 
     private CustomTabView[] tabs;
     private int selectedPosition = 0;
@@ -34,7 +36,7 @@ public class CustomBottomNavigationView extends LinearLayout {
         super(context);
         setOrientation(HORIZONTAL);
         setBackgroundColor(COLOR_BG);
-        setWeightSum(4);
+        setWeightSum(TAB_COUNT);
         setWillNotDraw(false);
 
         dividerPaint = new Paint();
@@ -45,7 +47,7 @@ public class CustomBottomNavigationView extends LinearLayout {
     }
 
     private void createTabs() {
-        tabs = new CustomTabView[4];
+        tabs = new CustomTabView[TAB_COUNT];
 
         // Tab 0: Chats
         tabs[0] = createTab("💬", getTabText("tab_chats", "Chats"), 0);
@@ -91,12 +93,13 @@ public class CustomBottomNavigationView extends LinearLayout {
 
     private String getTabText(String key, String defaultValue) {
         try {
+            // 注意: 资源查找在初始化时仅调用4次，性能影响可忽略
             int resId = getContext().getResources().getIdentifier(key, "string", getContext().getPackageName());
             if (resId != 0) {
                 return getContext().getString(resId);
             }
         } catch (Exception e) {
-            // 忽略
+            FileLog.e(e);
         }
         return defaultValue;
     }
