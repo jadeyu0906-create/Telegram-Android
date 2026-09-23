@@ -37,6 +37,7 @@ public class CustomMainTabsActivity extends MainTabsActivity {
 
     @Override
     public View createView(Context context) {
+        FileLog.d("CustomMainTabsActivity: createView called");
         View view = super.createView(context);
 
         // 隐藏官方的导航栏
@@ -45,11 +46,13 @@ public class CustomMainTabsActivity extends MainTabsActivity {
         // 创建自定义导航栏
         createCustomBottomNavigation(context);
 
+        FileLog.d("CustomMainTabsActivity: createView completed");
         return view;
     }
 
     private void hideOfficialTabsView() {
         try {
+            FileLog.d("CustomMainTabsActivity: Attempting to hide official tabs");
             // 反射访问父类的 tabsViewWrapper 字段
             Field tabsViewWrapperField = MainTabsActivity.class.getDeclaredField("tabsViewWrapper");
             tabsViewWrapperField.setAccessible(true);
@@ -57,6 +60,9 @@ public class CustomMainTabsActivity extends MainTabsActivity {
 
             if (tabsViewWrapper != null) {
                 tabsViewWrapper.setVisibility(View.GONE);
+                FileLog.d("CustomMainTabsActivity: Official tabs hidden successfully");
+            } else {
+                FileLog.e("CustomMainTabsActivity: tabsViewWrapper is null");
             }
         } catch (NoSuchFieldException e) {
             FileLog.e("CustomMainTabsActivity: tabsViewWrapper field not found", e);
@@ -69,6 +75,7 @@ public class CustomMainTabsActivity extends MainTabsActivity {
 
     private void createCustomBottomNavigation(Context context) {
         try {
+            FileLog.d("CustomMainTabsActivity: Creating custom bottom navigation");
             // 获取父类的 contentView
             Field contentViewField = MainTabsActivity.class.getDeclaredField("contentView");
             contentViewField.setAccessible(true);
@@ -79,6 +86,7 @@ public class CustomMainTabsActivity extends MainTabsActivity {
                 return;
             }
 
+            FileLog.d("CustomMainTabsActivity: contentView found, creating CustomBottomNavigationView");
             // 创建自定义导航栏
             customBottomNav = new CustomBottomNavigationView(context);
             customBottomNav.setOnTabSelectedListener(new CustomBottomNavigationView.OnTabSelectedListener() {
