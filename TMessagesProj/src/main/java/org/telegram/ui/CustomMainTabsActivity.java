@@ -74,43 +74,33 @@ public class CustomMainTabsActivity extends MainTabsActivity {
     }
 
     private void createCustomBottomNavigation(Context context) {
-        try {
-            FileLog.d("CustomMainTabsActivity: Creating custom bottom navigation");
-            // 获取父类的 contentView
-            Field contentViewField = MainTabsActivity.class.getDeclaredField("contentView");
-            contentViewField.setAccessible(true);
-            FrameLayout contentView = (FrameLayout) contentViewField.get(this);
+        FileLog.d("CustomMainTabsActivity: Creating custom bottom navigation");
 
-            if (contentView == null) {
-                FileLog.e("CustomMainTabsActivity: contentView is null");
-                return;
-            }
-
-            FileLog.d("CustomMainTabsActivity: contentView found, creating CustomBottomNavigationView");
-            // 创建自定义导航栏
-            customBottomNav = new CustomBottomNavigationView(context);
-            customBottomNav.setOnTabSelectedListener(new CustomBottomNavigationView.OnTabSelectedListener() {
-                @Override
-                public void onTabSelected(int position) {
-                    scrollToTab(position);
-                }
-            });
-
-            // 添加到底部
-            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                AndroidUtilities.dp(56)
-            );
-            params.gravity = Gravity.BOTTOM;
-            contentView.addView(customBottomNav, params);
-
-        } catch (NoSuchFieldException e) {
-            FileLog.e("CustomMainTabsActivity: contentView field not found", e);
-        } catch (IllegalAccessException e) {
-            FileLog.e("CustomMainTabsActivity: Cannot access contentView field", e);
-        } catch (Exception e) {
-            FileLog.e("CustomMainTabsActivity: Error creating custom navigation", e);
+        // contentView 是父类 ViewPagerActivity 的 protected 字段，可以直接访问
+        if (contentView == null) {
+            FileLog.e("CustomMainTabsActivity: contentView is null");
+            return;
         }
+
+        FileLog.d("CustomMainTabsActivity: contentView found, creating CustomBottomNavigationView");
+        // 创建自定义导航栏
+        customBottomNav = new CustomBottomNavigationView(context);
+        customBottomNav.setOnTabSelectedListener(new CustomBottomNavigationView.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(int position) {
+                scrollToTab(position);
+            }
+        });
+
+        // 添加到底部
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            AndroidUtilities.dp(56)
+        );
+        params.gravity = Gravity.BOTTOM;
+        contentView.addView(customBottomNav, params);
+
+        FileLog.d("CustomMainTabsActivity: Custom navigation added successfully");
     }
 
     private void scrollToTab(int position) {
