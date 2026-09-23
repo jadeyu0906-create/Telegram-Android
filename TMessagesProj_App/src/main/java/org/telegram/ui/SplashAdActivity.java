@@ -126,8 +126,9 @@ public class SplashAdActivity extends Activity {
         }
 
         try {
-            // @custom 自定义二开代码 - 跳转到主Tab容器Activity
-            Intent intent = new Intent(this, MainTabContainerActivity.class);
+            // @custom 自定义二开代码 - 跳转到官方LaunchActivity
+            // LaunchActivity会自动加载CustomMainTabsActivity（带自定义底部导航）
+            Intent intent = new Intent(this, LaunchActivity.class);
 
             // 传递原始的 intent 数据（如果有的话）
             if (getIntent() != null && getIntent().getExtras() != null) {
