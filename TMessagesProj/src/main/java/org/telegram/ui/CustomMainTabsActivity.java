@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.WindowInsetsCompat;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.FileLog;
 import org.telegram.ui.ActionBar.BaseFragment;
@@ -93,9 +96,12 @@ public class CustomMainTabsActivity extends MainTabsActivity {
         });
 
         // 添加到底部
+        // 高度 = Tab高度(56dp) + 系统底部手势条/导航栏高度，避免被小米手势条遮挡、点不到
+        int bottomInset = AndroidUtilities.navigationBarHeight;
+        customBottomNav.setPadding(0, 0, 0, bottomInset);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
-            AndroidUtilities.dp(56)
+            AndroidUtilities.dp(56) + bottomInset
         );
         params.gravity = Gravity.BOTTOM;
         contentView.addView(customBottomNav, params);
@@ -104,42 +110,48 @@ public class CustomMainTabsActivity extends MainTabsActivity {
     }
 
     private void scrollToTab(int position) {
-        try {
-            // 获取 viewPager 并切换到指定位置
-            Field viewPagerField = MainTabsActivity.class.getSuperclass().getDeclaredField("viewPager");
-            viewPagerField.setAccessible(true);
-            Object viewPager = viewPagerField.get(this);
-
-            if (viewPager != null) {
-                // 调用 scrollToPosition 方法
-                viewPager.getClass().getMethod("scrollToPosition", int.class).invoke(viewPager, position);
-            }
-        } catch (Exception e) {
-            FileLog.e("CustomMainTabsActivity: Error scrolling to tab", e);
+        // viewPager 是 ViewPagerActivity 的 protected 字段，直接访问，避免反射带来的卡顿
+        if (viewPager == null) {
+            return;
         }
+        // 与官方点击逻辑一致：滑动过程中忽略点击，已在目标页时忽略
+        if (viewPager.isManualScrolling() || viewPager.isTouch()) {
+            return;
+        }
+        if (viewPager.getCurrentPosition() == position) {
+            return;
+        }
+        viewPager.scrollToPosition(position);
     }
 
     @Override
     protected void onViewPagerTabAnimationUpdate(boolean manual) {
         super.onViewPagerTabAnimationUpdate(manual);
 
-        // 同步自定义导航栏的选中状态
-        if (customBottomNav != null) {
-            try {
-                Field viewPagerField = MainTabsActivity.class.getSuperclass().getDeclaredField("viewPager");
-                viewPagerField.setAccessible(true);
-                Object viewPager = viewPagerField.get(this);
+        // 同步自定义导航栏的选中状态（viewPager 为 protected 字段，直接访问）
+        if (customBottomNav != null && viewPager != null) {
+            customBottomNav.updatePosition(viewPager.getPositionAnimated());
+        }
+    }
 
-                if (viewPager != null) {
-                    // 获取当前滑动位置
-                    Float position = (Float) viewPager.getClass().getMethod("getPositionAnimated").invoke(viewPager);
-                    if (position != null) {
-                        customBottomNav.updatePosition(position);
-                    }
-                }
-            } catch (Exception e) {
-                // 忽略错误，不影响主要功能
+    @Override
+    protected WindowInsetsCompat onApplyWindowInsets(View v, WindowInsetsCompat insets) {
+        WindowInsetsCompat result = super.onApplyWindowInsets(v, insets);
+
+        // 根据系统窗口 insets 精确设置底部导航栏的底部内边距，避免手势条遮挡
+        if (customBottomNav != null) {
+            Insets systemInsets = AndroidUtilities.getDefaultWindowInsets(insets, false);
+            int bottomInset = systemInsets.bottom;
+            customBottomNav.setPadding(0, 0, 0, bottomInset);
+
+            ViewGroup.LayoutParams lp = customBottomNav.getLayoutParams();
+            int height = AndroidUtilities.dp(56) + bottomInset;
+            if (lp.height != height) {
+                lp.height = height;
+                customBottomNav.setLayoutParams(lp);
             }
         }
+
+        return result;
     }
 }
