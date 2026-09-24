@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class SplashAdActivity extends Activity {
 
-    private static final int COUNTDOWN_SECONDS = 30;
+    private static final int COUNTDOWN_SECONDS = 3;
     private CountDownTimer countDownTimer;
 
     private TextView skipButton;
