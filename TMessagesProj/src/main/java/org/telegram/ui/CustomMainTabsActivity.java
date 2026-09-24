@@ -34,6 +34,12 @@ public class CustomMainTabsActivity extends MainTabsActivity {
             args.putBoolean("hasMainTabs", true);
             return new DiscoverPlaceholderFragment();
         }
+        // 第4个Tab「我的」显示官方设置页（替代官方 ProfileActivity）
+        if (position == 3) {  // POSITION_PROFILE
+            Bundle args = new Bundle();
+            args.putBoolean("hasMainTabs", true);
+            return new SettingsActivity(args);
+        }
         // 其他Tab使用官方实现
         return super.createBaseFragmentAt(position);
     }
