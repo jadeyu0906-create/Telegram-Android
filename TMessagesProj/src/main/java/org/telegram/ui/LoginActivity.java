@@ -1608,7 +1608,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 ((LaunchActivity) getParentActivity()).switchToAccount(currentAccount, true, obj -> {
                     Bundle args = new Bundle();
                     args.putBoolean("afterSignup", afterSignup);
-                    MainTabsActivity mainTabsActivity = new MainTabsActivity();
+                    // @custom 自定义二开代码：使用自定义Tab容器
+                    MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
                     mainTabsActivity.prepareDialogsActivity(args);
                     return mainTabsActivity;
                 });
@@ -1623,7 +1624,8 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                 } else {
                     Bundle args = new Bundle();
                     args.putBoolean("afterSignup", afterSignup);
-                    MainTabsActivity mainTabsActivity = new MainTabsActivity();
+                    // @custom 自定义二开代码：使用自定义Tab容器
+                    MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
                     mainTabsActivity.prepareDialogsActivity(args);
                     presentFragment(mainTabsActivity, true);
                 }

@@ -1313,7 +1313,8 @@ public class TwoStepVerificationSetupActivity extends BaseFragment {
                 } else if (fromRegistration) {
                     final Bundle args = new Bundle();
                     args.putBoolean("afterSignup", true);
-                    MainTabsActivity mainTabsActivity = new MainTabsActivity();
+                    // @custom 自定义二开代码：使用自定义Tab容器
+                    MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
                     mainTabsActivity.prepareDialogsActivity(args);
                     presentFragment(mainTabsActivity, true);
                 } else {
@@ -2152,7 +2153,8 @@ public class TwoStepVerificationSetupActivity extends BaseFragment {
         if (otherwiseReloginDays >= 0 && parentLayout.getFragmentStack().size() == 1) {
             final Bundle args = new Bundle();
             args.putBoolean("afterSignup", true);
-            MainTabsActivity mainTabsActivity = new MainTabsActivity();
+            // @custom 自定义二开代码：使用自定义Tab容器
+            MainTabsActivity mainTabsActivity = new CustomMainTabsActivity();
             mainTabsActivity.prepareDialogsActivity(args);
             presentFragment(mainTabsActivity, true);
         } else {

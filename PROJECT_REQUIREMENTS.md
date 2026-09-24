@@ -188,9 +188,12 @@ refactor 重构      docs     文档        style    格式调整
 
 | 文件 | 改动位置 | 改动内容 | 冲突解法 |
 |------|---------|---------|---------|
-| `TMessagesProj/.../ui/LaunchActivity.java` | 589 / 1196 / 3312 / 3329 | `new MainTabsActivity()` → `new CustomMainTabsActivity()` | 保留 `@custom` 版，删 upstream 的 `new MainTabsActivity()` |
+| `TMessagesProj/.../ui/LaunchActivity.java` | 592 / 1199 / 3315 / 3332 | `new MainTabsActivity()` → `new CustomMainTabsActivity()` | 保留 `@custom` 版，删 upstream 的 `new MainTabsActivity()` |
+| `TMessagesProj/.../ui/LoginActivity.java` | 1612 / 1628 | 同上（登录成功跳转主界面） | 同上 |
+| `TMessagesProj/.../ui/TwoStepVerificationSetupActivity.java` | 1317 / 2157 | 同上（两步验证设置完成） | 同上 |
+| `TMessagesProj/.../ui/TwoStepVerificationActivity.java` | 1301 | 同上（两步验证完成） | 同上 |
 
-**检索规则**：合并后全局搜索 `new MainTabsActivity()`，确认官方是否有新增创建点，逐处替换。
+**检索规则**：合并后全局搜索 `new MainTabsActivity()`，确认官方是否有新增创建点，逐处替换为 `new CustomMainTabsActivity()`。
 
 **新增文件清单**（无冲突）：
 - `TMessagesProj`：`CustomMainTabsActivity`、`DiscoverPlaceholderFragment`、`Components/CustomTabView`、`Components/CustomBottomNavigationView`
@@ -202,17 +205,17 @@ refactor 重构      docs     文档        style    格式调整
 
 ### 8.1 核心结论
 
-- **新增文件永不冲突**；只有「修改官方文件」（目前仅 `LaunchActivity`）可能冲突，且冲突只在官方也改到同一行时发生。
+- **新增文件永不冲突**；只有「修改官方文件」（见第 7 节登记表，4 个文件）可能冲突，且冲突只在官方也改到同一行时发生。
 - **条件编译（BuildVars 开关）和注释都不能减少冲突**——它们解决的是「功能可开关」和「冲突后快速认出」。减少冲突只能靠：改官方越少、每处越窄、能放新文件就不改官方。
 
 ### 8.2 同步流程
 
 ```bash
 git fetch upstream
-git rebase upstream/master          # 推荐（线性历史），或 git merge
-# 解决 LaunchActivity 冲突：保留 @custom 版
-git add TMessagesProj/src/main/java/org/telegram/ui/LaunchActivity.java
-git rebase --continue
+git merge upstream/master           # 或 git rebase（线性历史）
+# 解决冲突：保留 @custom 版（新子模块需 git submodule update --init --recursive）
+git add <冲突文件>
+git commit
 # 全局搜索 new MainTabsActivity() 确认无遗漏新建点
 ./gradlew :TMessagesProj:compileDebugJavaWithJavac
 ```
