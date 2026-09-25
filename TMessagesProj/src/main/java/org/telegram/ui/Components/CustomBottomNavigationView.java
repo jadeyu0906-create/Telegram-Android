@@ -50,24 +50,40 @@ public class CustomBottomNavigationView extends LinearLayout {
         tabs = new CustomTabView[TAB_COUNT];
 
         // Tab 0: Chats
-        tabs[0] = createTab("💬", getTabText("tab_chats", "Chats"), 0);
+        tabs[0] = createTab(
+            getDrawableId("ic_tab_chat_24"),
+            getTabText("tab_chats", "Chats"),
+            0
+        );
 
         // Tab 1: Contacts
-        tabs[1] = createTab("👥", getTabText("tab_contacts", "Contacts"), 1);
+        tabs[1] = createTab(
+            getDrawableId("ic_tab_contacts_24"),
+            getTabText("tab_contacts", "Contacts"),
+            1
+        );
 
         // Tab 2: Discover
-        tabs[2] = createTab("🔍", getTabText("tab_discover", "Discover"), 2);
+        tabs[2] = createTab(
+            getDrawableId("ic_tab_discover_24"),
+            getTabText("tab_discover", "Discover"),
+            2
+        );
 
         // Tab 3: Mine
-        tabs[3] = createTab("👤", getTabText("tab_mine", "Mine"), 3);
+        tabs[3] = createTab(
+            getDrawableId("ic_tab_profile_24"),
+            getTabText("tab_mine", "Mine"),
+            3
+        );
 
         // 默认选中第一个
         setSelectedTab(0);
     }
 
-    private CustomTabView createTab(String emoji, String text, final int position) {
+    private CustomTabView createTab(int iconResId, String text, final int position) {
         CustomTabView tab = new CustomTabView(getContext());
-        tab.setTabIcon(emoji);
+        tab.setTabIcon(iconResId);
         tab.setTabText(text);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -102,6 +118,19 @@ public class CustomBottomNavigationView extends LinearLayout {
             FileLog.e(e);
         }
         return defaultValue;
+    }
+
+    private int getDrawableId(String name) {
+        try {
+            int resId = getContext().getResources().getIdentifier(name, "drawable", getContext().getPackageName());
+            if (resId != 0) {
+                return resId;
+            }
+        } catch (Exception e) {
+            FileLog.e(e);
+        }
+        // 返回0表示资源未找到，ImageView会显示为空
+        return 0;
     }
 
     public void setSelectedTab(int position) {
